@@ -23,7 +23,7 @@ function Dashboard() {
         const userId = JSON.parse(localStorage.getItem("user")).id;
 
         const fetchFinancials = async () => {
-            const res = await fetch(`http://localhost:5000/api/financials/${userId}`);
+            const res = await fetch(`/api/financials/${userId}`);
             const data = await res.json();
             if (data.user) {
                 setIncome(data.user.income);
@@ -46,7 +46,7 @@ function Dashboard() {
             return;
         }
         const userId = JSON.parse(localStorage.getItem("user")).id;
-        const res = await fetch("http://localhost:5000/api/financials/income", {
+        const res = await fetch("/api/financials/income", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ userId, income: newIncome }),
@@ -69,7 +69,7 @@ function Dashboard() {
             return;
         }
         const userId = JSON.parse(localStorage.getItem("user")).id;
-        const res = await fetch("http://localhost:5000/api/financials/expenses", {
+        const res = await fetch("/api/financials/expenses", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ userId, expense: newExpense }),

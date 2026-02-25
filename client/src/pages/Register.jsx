@@ -26,7 +26,7 @@ function Register() {
     if (!checks.length || !checks.upperCase || !checks.number || confirmPassword !== userPassword) {
       setShowErrors(true);
     } else {
-      const res = await fetch("http://localhost:5000/api/auth/register", {
+      const res = await fetch("/api/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name: userName, email: userEmail, password: userPassword })
