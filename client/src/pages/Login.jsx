@@ -29,7 +29,8 @@ function Login() {
         body: JSON.stringify({ email, password })
       });
 
-      
+      const data = await res.json();
+
       if (!res.ok) {
         return setErrorMessage(data.message || "Login failed");
       }
